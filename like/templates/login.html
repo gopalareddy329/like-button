@@ -1,0 +1,9 @@
+<form method="POST" action="">
+    {% csrf_token %}
+    {% for item in form %}
+        <label>{{item.label}}</label>
+        {{item}}
+    {% endfor %}
+    <button type="submit">Login</button>
+    {{error}}
+</form>
