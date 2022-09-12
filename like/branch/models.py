@@ -10,6 +10,7 @@ class User(AbstractUser):
     
 class Artical(models.Model):
     name=models.CharField(max_length=200)
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     likes=models.ManyToManyField(User,related_name="likes",blank=True)
     
     def total_likes(self):

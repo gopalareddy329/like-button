@@ -7,13 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    {% include 'navbar.html' %}
-
-    {% for items in context %}
-        <a href="{% url 'artical' items.id%}">@{{items.name}}</a>
-    {% endfor %}
-
-    
-
+    <b>{{articals.name}}</b>
+    {% if user not in articals.likes.all%}
+        <a href="{% url 'like' articals.id %}">Like</a>
+    {% else %}
+        <a href="{% url 'unlike' articals.id %}">Unlike</a>
+    {% endif %}
+    {{likes}}
 </body>
 </html>
